@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     @Pointcut("within(ai.leantech.jpatest.service.SimpleSpringAspectOrientedProgrammingLoggingUserExampleService)")
     public void loggingMethods() {
-        //log.info("pointcut");
+        //Метод должен быть пустым
     }
 
     @After("loggingMethods()")
