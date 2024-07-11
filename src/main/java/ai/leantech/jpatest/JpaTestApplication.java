@@ -43,12 +43,15 @@ public class JpaTestApplication {
                 roleRepository.deleteAll();
 
                 RoleEntity role1 = roleRepository.save(new RoleEntity(UUID.randomUUID(), "Role", new HashSet<>()));
-                UserEntity u = new UserEntity(new Random().nextInt(), "User", LocalDateTime.now(), Instant.now(), null, new HashSet<>());
-                u.getRoles().add(role1);
-                UserEntity user = userRepository.save(u);
+                UserEntity u = new UserEntity(1, "Bjarne Stroustrup", LocalDateTime.of(1950, 12, 30, 12, 12), Instant.now(), null, new HashSet<>());
+                //u.getRoles().add(role1);
+				//UserEntity user = userRepository.save(u);
+				userRepository.save(new UserEntity(2, "Linus Torvalds", LocalDateTime.of(1969, 12, 28, 12, 12), Instant.now(), null, null));
+				userRepository.save(new UserEntity(3, "Robert Martin", LocalDateTime.of(1952, 12, 5, 12, 12), Instant.now(), null, null));
+				userRepository.save(new UserEntity(4, "Alan Turing", LocalDateTime.of(1923, 6, 23, 12, 12), Instant.now(), null, null));
 				roleRepository.save(new RoleEntity(UUID.randomUUID(), "Role", new HashSet<>()));
 				roleRepository.save(new RoleEntity(UUID.randomUUID(), "Role", new HashSet<>()));
-                messageRepository.save(new MessageEntity(UUID.randomUUID(), "aaaa", user));
+                //messageRepository.save(new MessageEntity(UUID.randomUUID(), "aaaa", user));
                 return null;
             });
 		};
