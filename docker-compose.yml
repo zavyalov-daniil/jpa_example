@@ -1,0 +1,12 @@
+services:
+  db_postgres_test:
+    container_name: postgresForTest
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234567
+    ports:
+      - "5439:5432"
+
+    restart: 'no'
