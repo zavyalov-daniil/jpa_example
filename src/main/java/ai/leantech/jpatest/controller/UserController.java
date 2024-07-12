@@ -1,7 +1,7 @@
 package ai.leantech.jpatest.controller;
 
 import ai.leantech.jpatest.entity.UserEntity;
-import ai.leantech.jpatest.service.SimpleSpringAspectOrientedProgrammingLoggingUserExampleService;
+import ai.leantech.jpatest.service.SimpleAspectOrientedProgrammingLoggingUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
-    private final SimpleSpringAspectOrientedProgrammingLoggingUserExampleService service;
+    private final SimpleAspectOrientedProgrammingLoggingUserService service;
 
     @PostMapping
     public UserEntity saveUser(@RequestBody UserEntity user) {
@@ -28,7 +28,7 @@ public class UserController {
 
     @GetMapping
     public List<UserEntity> findAllUsers(@RequestParam("birth_after") LocalDateTime dateTime) {
-        return service.findAllUsers(dateTime);
+        return service.findAllUsersByBirthAfter(dateTime);
     }
 
     @DeleteMapping("/{id}")
