@@ -2,10 +2,9 @@ package ai.leantech.jpatest.service;
 
 import ai.leantech.jpatest.entity.UserEntity;
 import ai.leantech.jpatest.repository.UserRepository;
-import ai.leantech.jpatest.service.aspect.LogExecutionTime;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,7 +15,6 @@ import java.util.List;
 public class SimpleAspectOrientedProgrammingLoggingUserService {
     private final UserRepository userRepository;
 
-    @LogExecutionTime
     public UserEntity saveUser(UserEntity user) {
         return userRepository.save(user);
     }
